@@ -43,7 +43,7 @@ Chatify is a modern real-time chat application built with a React frontend and N
 
 ## 🏗️ Architecture
 
-```mermaid
+``mermaid
 graph TB
     A[Client - React/Vite] --> B[API Gateway]
     B --> C[Auth Service]
@@ -76,6 +76,30 @@ graph TB
 7. **Email** - Resend for transactional emails
 8. **Security** - Arcjet for rate limiting and protection
 
+### Microservice Architecture
+
+``mermaid
+graph LR
+    A[Frontend] --- B[API Gateway]
+    B --- C[Auth Service]
+    B --- D[Message Service]
+    C --- E[(User DB)]
+    D --- F[(Message DB)]
+    D --- G[Socket Service]
+    C --- H[Email Service]
+    D --- I[Media Service]
+    
+    style A fill:#4FC08D
+    style B fill:#42b883
+    style C fill:#34495e
+    style D fill:#2c3e50
+    style E fill:#43b581
+    style F fill:#3498db
+    style G fill:#8B4513
+    style H fill:#9b59b6
+    style I fill:#00BEE0
+```
+
 ## ✨ Features
 
 ### Authentication
@@ -96,6 +120,77 @@ graph TB
 - ✅ Animated UI components
 - ✅ Loading skeletons
 - ✅ Toast notifications
+
+### Data Flow Diagram
+
+``mermaid
+flowchart LR
+    A[User] --> B[Frontend UI]
+    B --> C[API Request]
+    C --> D[Backend Server]
+    D --> E[Database]
+    E --> D
+    D --> F[Response]
+    F --> B
+    D --> G[Email Service]
+    G --> H[Email Notification]
+    H --> A
+    D --> I[WebSocket]
+    I --> J[Real-time Update]
+    J --> A
+    
+    style A fill:#4FC08D
+    style B fill:#42b883
+    style C fill:#34495e
+    style D fill:#2c3e50
+    style E fill:#43b581
+    style F fill:#3498db
+    style G fill:#9b59b6
+    style H fill:#e67e22
+    style I fill:#8B4513
+    style J fill:#e74c3c
+```
+
+### Authentication Flow
+
+``mermaid
+sequenceDiagram
+    participant U as User
+    participant F as Frontend
+    participant B as Backend
+    participant D as Database
+    
+    U->>F: Enter credentials
+    F->>B: POST /api/auth/login
+    B->>D: Validate user
+    D-->>B: User data
+    B->>B: Generate JWT
+    B-->>F: JWT in cookie
+    F->>F: Store user state
+    F-->>U: Redirect to chat
+```
+
+### Messaging Flow
+
+``mermaid
+sequenceDiagram
+    participant U1 as User 1
+    participant U2 as User 2
+    participant F1 as Frontend 1
+    participant F2 as Frontend 2
+    participant B as Backend
+    participant S as Socket.IO
+    participant D as Database
+    
+    U1->>F1: Type message
+    F1->>B: POST /api/messages/send/{id}
+    B->>D: Save message
+    D-->>B: Confirmation
+    B->>S: Emit message event
+    S->>F2: Real-time message
+    F2->>F2: Update UI
+    F2-->>U2: Display message
+```
 
 ## 🛠️ Tech Stack
 

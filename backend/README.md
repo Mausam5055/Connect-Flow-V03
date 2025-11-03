@@ -42,7 +42,7 @@ The backend is a Node.js/Express REST API that handles authentication, messaging
 
 ## 🏗️ Architecture
 
-```mermaid
+``mermaid
 graph TD
     A[Client Applications] --> B[Express Router]
     B --> C[Middleware Layer]
@@ -67,7 +67,7 @@ graph TD
 
 ### Flow Diagram
 
-```mermaid
+``mermaid
 sequenceDiagram
     participant Client
     participant AuthMiddleware
@@ -85,6 +85,53 @@ sequenceDiagram
     Database-->>Service: Data
     Service-->>Controller: Processed data
     Controller-->>Client: HTTP Response
+```
+
+### Authentication Flow
+
+```mermaid
+flowchart TD
+    A[User Request] --> B[Auth Middleware]
+    B --> C{Valid JWT?}
+    C -->|No| D[401 Unauthorized]
+    C -->|Yes| E[Attach User]
+    E --> F[Controller]
+    F --> G[Service]
+    G --> H[Database]
+    H --> G
+    G --> F
+    F --> I[Response]
+    I --> A
+    
+    style A fill:#4FC08D
+    style B fill:#34495e
+    style C fill:#2c3e50
+    style D fill:#e74c3c
+    style E fill:#3498db
+    style F fill:#42b883
+    style G fill:#9b59b6
+    style H fill:#43b581
+    style I fill:#2ecc71
+```
+
+### Messaging Architecture
+
+```mermaid
+graph TD
+    A[Message Controller] --> B[Message Service]
+    B --> C[Database Operations]
+    B --> D[Socket.IO Emit]
+    B --> E[Cloudinary Upload]
+    
+    A --> F[Rate Limiting]
+    F --> A
+    
+    style A fill:#42b883
+    style B fill:#3498db
+    style C fill:#43b581
+    style D fill:#8B4513
+    style E fill:#00BEE0
+    style F fill:#e74c3c
 ```
 
 ## 📍 API Endpoints
@@ -112,7 +159,7 @@ sequenceDiagram
 
 ### User Model
 
-```javascript
+``javascript
 {
   email: String,          // Unique, required
   fullName: String,       // Required
@@ -127,7 +174,7 @@ sequenceDiagram
 
 ### Message Model
 
-```javascript
+``javascript
 {
   senderId: ObjectId,     // Reference to User
   receiverId: ObjectId,   // Reference to User
@@ -138,6 +185,30 @@ sequenceDiagram
     updatedAt: Date
   }
 }
+```
+
+### Data Relationship Diagram
+
+``mermaid
+erDiagram
+    USER ||--o{ MESSAGE : sends
+    USER ||--o{ MESSAGE : receives
+    USER {
+        string email
+        string fullName
+        string password
+        string profilePic
+        date createdAt
+        date updatedAt
+    }
+    MESSAGE {
+        ObjectId senderId
+        ObjectId receiverId
+        string text
+        string image
+        date createdAt
+        date updatedAt
+    }
 ```
 
 ## ⚙️ Middleware

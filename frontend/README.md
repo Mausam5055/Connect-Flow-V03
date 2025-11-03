@@ -47,7 +47,7 @@ The frontend is a React application built with Vite that provides a responsive, 
 
 ## 🏗️ UI Architecture
 
-```mermaid
+``mermaid
 graph TD
     A[App.jsx] --> B[Router]
     B --> C[Pages]
@@ -70,7 +70,7 @@ graph TD
 
 ### Component Hierarchy
 
-```mermaid
+``mermaid
 graph TD
     A[App.jsx] --> B[ChatPage]
     A --> C[LoginPage]
@@ -96,6 +96,58 @@ graph TD
     style G fill:#e67e22
     style H fill:#43b581
     style I fill:#8B4513
+```
+
+### State Management Flow
+
+``mermaid
+graph TD
+    A[Zustand Stores] --> B[Auth Store]
+    A --> C[Chat Store]
+    B --> D[User State]
+    B --> E[Auth Functions]
+    C --> F[Chat State]
+    C --> G[Message Functions]
+    A --> H[Real-time Updates]
+    
+    style A fill:#3498db
+    style B fill:#2ecc71
+    style C fill:#e74c3c
+    style D fill:#9b59b6
+    style E fill:#34495e
+    style F fill:#f39c12
+    style G fill:#2c3e50
+    style H fill:#8B4513
+```
+
+### Data Flow Diagram
+
+``mermaid
+flowchart LR
+    A[User Interaction] --> B[React Components]
+    B --> C[Zustand Store]
+    C --> D[API Calls]
+    D --> E[Backend API]
+    E --> F[Database]
+    F --> E
+    E --> G[Response]
+    G --> C
+    C --> H[UI Updates]
+    H --> A
+    E --> I[WebSocket]
+    I --> J[Real-time Events]
+    J --> C
+    
+    style A fill:#4FC08D
+    style B fill:#42b883
+    style C fill:#3498db
+    style D fill:#34495e
+    style E fill:#2c3e50
+    style F fill:#43b581
+    style G fill:#2ecc71
+    style H fill:#f39c12
+    style I fill:#8B4513
+    style J fill:#e74c3c
 ```
 
 ## 🧩 Components
@@ -154,6 +206,33 @@ Located in [useChatStore.js](src/store/useChatStore.js):
 - Messages for current conversation
 - Real-time message updates
 
+### Store Architecture
+
+``mermaid
+graph TD
+    A[useAuthStore] --> B[User State]
+    A --> C[Auth Actions]
+    B --> D[userInfo]
+    B --> E[isAuthenticated]
+    C --> F[login]
+    C --> G[signup]
+    C --> H[logout]
+    C --> I[checkAuth]
+    
+    A --> J[Zustand]
+    
+    style A fill:#3498db
+    style B fill:#2ecc71
+    style C fill:#e74c3c
+    style D fill:#9b59b6
+    style E fill:#34495e
+    style F fill:#f39c12
+    style G fill:#2c3e50
+    style H fill:#8B4513
+    style I fill:#e67e22
+    style J fill:#42b883
+```
+
 ## 🔄 Routing
 
 We use React Router for navigation:
@@ -165,6 +244,24 @@ We use React Router for navigation:
 | `/signup` | SignUpPage | No | User registration |
 
 Protected routes redirect unauthenticated users to login.
+
+### Route Protection Flow
+
+``mermaid
+flowchart TD
+    A[Route Access] --> B{Authenticated?}
+    B -->|Yes| C[Render Component]
+    B -->|No| D[Redirect to Login]
+    C --> E[Protected Route]
+    D --> F[Public Route]
+    
+    style A fill:#4FC08D
+    style B fill:#34495e
+    style C fill:#2ecc71
+    style D fill:#e74c3c
+    style E fill:#42b883
+    style F fill:#3498db
+```
 
 ## 🎨 Styling
 
@@ -215,6 +312,29 @@ Located in [axios.js](src/lib/axios.js):
 - Request/response interceptors
 - Error handling
 - Base URL configuration
+
+### API Layer Architecture
+
+``mermaid
+graph TD
+    A[React Components] --> B[Axios Client]
+    B --> C[Request Interceptor]
+    C --> D[HTTP Request]
+    D --> E[Backend API]
+    E --> F[Response]
+    F --> G[Response Interceptor]
+    G --> B
+    B --> H[Component State]
+    
+    style A fill:#61DAFB
+    style B fill:#3498db
+    style C fill:#34495e
+    style D fill:#2c3e50
+    style E fill:#42b883
+    style F fill:#43b581
+    style G fill:#2ecc71
+    style H fill:#9b59b6
+```
 
 ### API Endpoints Used
 
@@ -346,7 +466,7 @@ Ensure these are set in your deployment environment:
 ### CI/CD Integration
 
 Example GitHub Actions workflow:
-```yaml
+``yaml
 name: Deploy Frontend
 on:
   push:
