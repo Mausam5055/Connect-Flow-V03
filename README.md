@@ -19,6 +19,7 @@
 - [Overview](#overview)
 - [Architecture](#architecture)
 - [Features](#features)
+- [Socket.IO Functionality](#socketio-functionality)
 - [Tech Stack](#tech-stack)
 - [Project Structure](#project-structure)
 - [Getting Started](#getting-started)
@@ -190,6 +191,76 @@ sequenceDiagram
     S->>F2: Real-time message
     F2->>F2: Update UI
     F2-->>U2: Display message
+```
+
+## 🔌 Socket.IO Functionality
+
+Chatify uses Socket.IO for real-time communication between clients and the server. This enables instant message delivery, online status updates, and other real-time features.
+
+### Architecture
+
+```mermaid
+graph TD
+    A[Frontend Client] --> B{Socket.IO Client}
+    C[Frontend Client] --> D{Socket.IO Client}
+    B --> E[Socket.IO Server]
+    D --> E
+    E --> F[Backend Logic]
+    F --> G[(MongoDB)]
+    E --> B
+    E --> D
+    
+    style A fill:#61DAFB
+    style B fill:#8B4513
+    style C fill:#61DAFB
+    style D fill:#8B4513
+    style E fill:#42b883
+    style F fill:#34495e
+    style G fill:#43b581
+```
+
+### Key Features
+
+| Feature | Description |
+|---------|-------------|
+| 💬 Real-time Messaging | Instant message delivery between users |
+| 👤 Online Status | Real-time presence indicators |
+| 🔔 Notifications | Instant alerts for new messages |
+| 🔄 Bidirectional Communication | Server can push updates to clients |
+
+### Implementation Details
+
+#### Backend
+- Socket.IO server is initialized in [socket.js](backend/src/lib/socket.js)
+- Authentication middleware ensures only authenticated users can connect
+- Online user tracking with `userSocketMap` to maintain user presence
+- Event emission for new messages and online user updates
+
+#### Frontend
+- Socket.IO client connection established in [useAuthStore.js](frontend/src/store/useAuthStore.js)
+- Real-time message subscription in [useChatStore.js](frontend/src/store/useChatStore.js)
+- Online user status tracking
+- Notification sounds for incoming messages
+
+### Event Flow
+
+```mermaid
+sequenceDiagram
+    participant C1 as Client 1
+    participant S as Socket.IO Server
+    participant C2 as Client 2
+    participant DB as Database
+    
+    C1->>S: Connect with auth token
+    S->>S: Validate authentication
+    S-->>C1: Connection established
+    S->>C2: Emit online users list
+    
+    C1->>S: Send message event
+    S->>DB: Save message
+    DB-->>S: Confirmation
+    S->>C2: Emit new message
+    C2->>C2: Display notification
 ```
 
 ## 🛠️ Tech Stack
