@@ -89,7 +89,7 @@ sequenceDiagram
 
 ### Authentication Flow
 
-````mermaid
+```mermaid
 flowchart TD
     A[User Request] --> B[Auth Middleware]
     B --> C{Valid JWT?}
@@ -114,9 +114,10 @@ flowchart TD
     style I fill:#2ecc71
 ```
 
+
 ### Messaging Architecture
 
-````mermaid
+```mermaid
 graph TD
     A[Message Controller] --> B[Message Service]
     B --> C[Database Operations]
@@ -159,7 +160,7 @@ graph TD
 
 ### User Model
 
-``javascript
+```javascript
 {
   email: String,          // Unique, required
   fullName: String,       // Required
@@ -174,7 +175,7 @@ graph TD
 
 ### Message Model
 
-``javascript
+```javascript
 {
   senderId: ObjectId,     // Reference to User
   receiverId: ObjectId,   // Reference to User
@@ -210,6 +211,7 @@ erDiagram
         date updatedAt
     }
 ```
+
 
 ## ⚙️ Middleware
 
