@@ -43,7 +43,7 @@ Chatify is a modern real-time chat application built with a React frontend and N
 
 ## 🏗️ Architecture
 
-``mermaid
+```mermaid
 graph TB
     A[Client - React/Vite] --> B[API Gateway]
     B --> C[Auth Service]
@@ -78,7 +78,7 @@ graph TB
 
 ### Microservice Architecture
 
-``mermaid
+```mermaid
 graph LR
     A[Frontend] --- B[API Gateway]
     B --- C[Auth Service]
@@ -123,7 +123,7 @@ graph LR
 
 ### Data Flow Diagram
 
-``mermaid
+```mermaid
 flowchart LR
     A[User] --> B[Frontend UI]
     B --> C[API Request]
@@ -153,7 +153,7 @@ flowchart LR
 
 ### Authentication Flow
 
-``mermaid
+```mermaid
 sequenceDiagram
     participant U as User
     participant F as Frontend
@@ -172,7 +172,7 @@ sequenceDiagram
 
 ### Messaging Flow
 
-``mermaid
+```mermaid
 sequenceDiagram
     participant U1 as User 1
     participant U2 as User 2

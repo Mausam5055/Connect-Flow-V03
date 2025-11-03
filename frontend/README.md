@@ -47,7 +47,7 @@ The frontend is a React application built with Vite that provides a responsive, 
 
 ## 🏗️ UI Architecture
 
-``mermaid
+```mermaid
 graph TD
     A[App.jsx] --> B[Router]
     B --> C[Pages]
@@ -70,7 +70,7 @@ graph TD
 
 ### Component Hierarchy
 
-``mermaid
+```mermaid
 graph TD
     A[App.jsx] --> B[ChatPage]
     A --> C[LoginPage]
@@ -100,7 +100,7 @@ graph TD
 
 ### State Management Flow
 
-``mermaid
+```mermaid
 graph TD
     A[Zustand Stores] --> B[Auth Store]
     A --> C[Chat Store]
@@ -122,7 +122,7 @@ graph TD
 
 ### Data Flow Diagram
 
-``mermaid
+```mermaid
 flowchart LR
     A[User Interaction] --> B[React Components]
     B --> C[Zustand Store]
@@ -208,7 +208,7 @@ Located in [useChatStore.js](src/store/useChatStore.js):
 
 ### Store Architecture
 
-``mermaid
+```mermaid
 graph TD
     A[useAuthStore] --> B[User State]
     A --> C[Auth Actions]
@@ -247,7 +247,7 @@ Protected routes redirect unauthenticated users to login.
 
 ### Route Protection Flow
 
-``mermaid
+```mermaid
 flowchart TD
     A[Route Access] --> B{Authenticated?}
     B -->|Yes| C[Render Component]
@@ -315,7 +315,7 @@ Located in [axios.js](src/lib/axios.js):
 
 ### API Layer Architecture
 
-``mermaid
+```mermaid
 graph TD
     A[React Components] --> B[Axios Client]
     B --> C[Request Interceptor]
