@@ -212,7 +212,6 @@ erDiagram
     }
 ```
 
-
 ## ⚙️ Middleware
 
 ### Authentication Middleware
