@@ -259,7 +259,7 @@ sequenceDiagram
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/chatify.git
+git clone https://github.com/mausamkar/chatify.git
 cd chatify
 ```
 
@@ -322,5 +322,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 <p align="center">
-  Made with ❤️ by <a href="https://github.com/yourusername">Your Name</a>
+  Made with ❤️ by <a href="https://github.com/mausamkar">Mausam Kar</a>
 </p>
