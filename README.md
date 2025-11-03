@@ -1,0 +1,231 @@
+<div align="center">
+  <img src="https://img.shields.io/badge/Node.js-20.0%2B-green" alt="Node.js Version">
+  <img src="https://img.shields.io/badge/License-MIT-blue" alt="License">
+  <img src="https://img.shields.io/badge/Build-Passing-brightgreen" alt="Build Status">
+</div>
+
+<h1 align="center">Chatify - Real-Time Chat Application</h1>
+
+<p align="center">
+  A full-stack real-time chat application with authentication, messaging, and media sharing capabilities
+</p>
+
+<p align="center">
+  <img src="docs/images/chatify-preview.png" alt="Chatify Preview" width="800">
+</p>
+
+## 📋 Table of Contents
+
+- [Overview](#overview)
+- [Architecture](#architecture)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Project Structure](#project-structure)
+- [Getting Started](#getting-started)
+- [API Documentation](#api-documentation)
+- [Deployment](#deployment)
+- [Contributing](#contributing)
+- [License](#license)
+
+## 📖 Overview
+
+Chatify is a modern real-time chat application built with a React frontend and Node.js/Express backend. It features secure authentication, real-time messaging using Socket.IO, media sharing via Cloudinary, and email notifications through Resend.
+
+### Key Benefits
+
+| Benefit | Description |
+|---------|-------------|
+| 🔒 Security | JWT-based authentication with rate limiting via Arcjet |
+| ⚡ Performance | Real-time messaging with Socket.IO |
+| 📱 Responsive | Mobile-first design with Tailwind CSS |
+| ☁️ Cloud Storage | Media handling with Cloudinary |
+| 📧 Email Service | Transactional emails with Resend |
+
+## 🏗️ Architecture
+
+```mermaid
+graph TB
+    A[Client - React/Vite] --> B[API Gateway]
+    B --> C[Auth Service]
+    B --> D[Message Service]
+    C --> E[(MongoDB)]
+    D --> E
+    D --> F[Socket.IO Server]
+    F --> G[Real-time Clients]
+    C --> H[Resend Email]
+    D --> I[Cloudinary CDN]
+    
+    style A fill:#4FC08D
+    style B fill:#42b883
+    style C fill:#34495e
+    style D fill:#34495e
+    style E fill:#43b581
+    style F fill:#8B4513
+    style H fill:#5600E8
+    style I fill:#00BEE0
+```
+
+### System Components
+
+1. **Frontend** - React application with Vite bundler
+2. **Backend** - Node.js/Express REST API with WebSocket support
+3. **Database** - MongoDB with Mongoose ODM
+4. **Authentication** - JWT tokens with cookie-based sessions
+5. **Real-time** - Socket.IO for instant messaging
+6. **Storage** - Cloudinary for media files
+7. **Email** - Resend for transactional emails
+8. **Security** - Arcjet for rate limiting and protection
+
+## ✨ Features
+
+### Authentication
+- ✅ Secure signup/login with password hashing
+- ✅ JWT token authentication
+- ✅ Session management with cookies
+- ✅ Profile picture upload
+
+### Messaging
+- ✅ Real-time messaging with Socket.IO
+- ✅ Message history
+- ✅ Image sharing
+- ✅ Online/offline user status
+
+### UI/UX
+- ✅ Responsive design for all devices
+- ✅ Dark mode interface
+- ✅ Animated UI components
+- ✅ Loading skeletons
+- ✅ Toast notifications
+
+## 🛠️ Tech Stack
+
+### Frontend
+| Technology | Purpose |
+|------------|---------|
+| React 19 | UI Library |
+| Vite 7 | Build Tool |
+| Tailwind CSS | Styling |
+| Zustand | State Management |
+| Socket.IO Client | Real-time Communication |
+| Axios | HTTP Client |
+
+### Backend
+| Technology | Purpose |
+|------------|---------|
+| Node.js 20+ | Runtime Environment |
+| Express | Web Framework |
+| MongoDB | Database |
+| Mongoose | ODM |
+| Socket.IO | Real-time Communication |
+| JWT | Authentication |
+| Arcjet | Rate Limiting & Security |
+
+### Services
+| Service | Purpose |
+|---------|---------|
+| Cloudinary | Media Storage |
+| Resend | Email Service |
+| MongoDB Atlas | Database Hosting |
+
+## 📁 Project Structure
+
+```
+.
+├── backend/
+│   ├── src/
+│   │   ├── controllers/     → Request handlers
+│   │   ├── emails/          → Email logic and templates
+│   │   ├── lib/             → Utility and service clients
+│   │   ├── middleware/      → Auth and protection layers
+│   │   ├── models/          → MongoDB schemas
+│   │   ├── routes/          → API route definitions
+│   │   └── server.js        → Entry point
+├── frontend/
+│   ├── src/
+│   │   ├── components/      → Reusable UI elements
+│   │   ├── hooks/           → Custom React hooks
+│   │   ├── lib/             → Configured clients
+│   │   ├── pages/           → Route-level components
+│   │   ├── store/           → State management
+│   │   ├── App.jsx          → Root component
+│   │   └── main.jsx         → Entry point
+└── package.json            → Monorepo orchestration
+```
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js >= 20.0.0
+- MongoDB instance (local or cloud)
+- Cloudinary account
+- Resend account
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/chatify.git
+cd chatify
+```
+
+2. Install dependencies:
+```bash
+npm run build
+```
+
+3. Set up environment variables (see backend/.env.example and frontend/.env.example)
+
+4. Start the development servers:
+```bash
+# Terminal 1 - Backend
+npm run start
+
+# Terminal 2 - Frontend
+npm run dev --prefix frontend
+```
+
+### Environment Variables
+
+Refer to the individual README files in each directory for detailed environment variable setup.
+
+## 📡 API Documentation
+
+Detailed API documentation can be found in:
+- [Backend API Documentation](backend/README.md#api-documentation)
+- [Frontend Components](frontend/README.md#components)
+
+## ☁️ Deployment
+
+### Production Build
+```bash
+npm run build
+```
+
+### Deployment Options
+1. Deploy backend to platforms like:
+   - Render
+   - Heroku
+   - DigitalOcean App Platform
+
+2. Deploy frontend to:
+   - Netlify
+   - Vercel
+   - GitHub Pages
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a pull request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+<p align="center">
+  Made with ❤️ by <a href="https://github.com/yourusername">Your Name</a>
+</p>
