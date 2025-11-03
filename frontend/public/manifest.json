@@ -1,0 +1,25 @@
+{
+  "short_name": "Chatify",
+  "name": "Chatify - Real-Time Chat Application",
+  "icons": [
+    {
+      "src": "/chatify-favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/chatify-favicon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/chatify-favicon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#4F46E5",
+  "background_color": "#ffffff"
+}
