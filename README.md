@@ -301,11 +301,13 @@ npm run build
    - Render
    - Heroku
    - DigitalOcean App Platform
+   - Sevalla
 
 2. Deploy frontend to:
    - Netlify
    - Vercel
    - GitHub Pages
+   - Sevalla
 
 ## 🤝 Contributing
 
@@ -322,5 +324,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 <p align="center">
-  Made with ❤️ by <a href="https://github.com/Mausam5055">Mausam Kar</a>
+  Hosted on Sevalla | Made with ❤️ by <a href="https://github.com/Mausam5055">Mausam Kar</a>
 </p>

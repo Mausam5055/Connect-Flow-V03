@@ -381,6 +381,7 @@ npm start
 | Heroku | Free tier available |
 | DigitalOcean App Platform | Good scalability |
 | AWS Elastic Beanstalk | Enterprise option |
+| Sevalla | Hosted by Mausam Kar |
 
 ### Environment for Production
 
@@ -396,5 +397,5 @@ The server exposes a health check endpoint at the root path `/`.
 ---
 
 <p align="center">
-  Made with ❤️ by <a href="https://github.com/Mausam5055">Mausam Kar</a>
+  Hosted on Sevalla | Made with ❤️ by <a href="https://github.com/Mausam5055">Mausam Kar</a>
 </p>

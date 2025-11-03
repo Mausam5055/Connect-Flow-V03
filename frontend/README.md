@@ -447,6 +447,7 @@ This creates a `dist/` folder with optimized assets.
 | Netlify | Great static hosting |
 | GitHub Pages | Free option |
 | Firebase Hosting | Google solution |
+| Sevalla | Hosted by Mausam Kar |
 
 ### Deployment Steps
 
@@ -487,5 +488,5 @@ jobs:
 ---
 
 <p align="center">
-  Made with ❤️ by <a href="https://github.com/Mausam5055">Mausam Kar</a>
+  Hosted on Sevalla | Made with ❤️ by <a href="https://github.com/Mausam5055">Mausam Kar</a>
 </p>
