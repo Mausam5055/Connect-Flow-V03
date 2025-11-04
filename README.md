@@ -154,7 +154,7 @@ flowchart LR
 
 ### Authentication Flow
 
-``mermaid
+```mermaid
 sequenceDiagram
     participant U as User
     participant F as Frontend
