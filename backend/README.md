@@ -42,7 +42,7 @@ The backend is a Node.js/Express REST API that handles authentication, messaging
 
 ## 🏗️ Architecture
 
-```mermaid
+```
 graph TD
     A[Client Applications] --> B[Express Router]
     B --> C[Middleware Layer]
@@ -67,7 +67,7 @@ graph TD
 
 ### Flow Diagram
 
-```mermaid
+```
 sequenceDiagram
     participant Client
     participant AuthMiddleware
@@ -89,7 +89,7 @@ sequenceDiagram
 
 ### Authentication Flow
 
-```mermaid
+```
 flowchart TD
     A[User Request] --> B[Auth Middleware]
     B --> C{Valid JWT?}
@@ -117,7 +117,7 @@ flowchart TD
 
 ### Messaging Architecture
 
-```mermaid
+```
 graph TD
     A[Message Controller] --> B[Message Service]
     B --> C[Database Operations]
@@ -190,11 +190,10 @@ graph TD
 
 ### Data Relationship Diagram
 
-```mermaid
-erDiagram
-    USER ||--o{ MESSAGE : sends
-    USER ||--o{ MESSAGE : receives
-    USER {
+```
+USER ||--o{ MESSAGE : sends
+USER ||--o{ MESSAGE : receives
+USER {
         string email
         string fullName
         string password
@@ -303,7 +302,7 @@ Create a `.env` file in the backend root with these variables:
 | `RESEND_API_KEY` | Resend API key | Yes |
 
 Example [.env.example](.env.example) file:
-```env
+```
 PORT=3000
 MONGO_URI=mongodb://localhost:27017/chatify
 JWT_SECRET=your_super_secret_jwt_key_here
@@ -399,21 +398,3 @@ The server exposes a health check endpoint at the root path `/`.
 <p align="center">
   Hosted on Sevalla | Made with ❤️ by <a href="https://github.com/Mausam5055">Mausam Kar</a>
 </p>
-```
-
-## 🖼️ API in Action
-
-While the backend doesn't have a UI, here are some screenshots showing the application that uses our API:
-
-### Application Screenshots
-<p align="center">
-  <img src="../docs/images/3.png" alt="Chat Interface" width="45%">
-  <img src="../docs/images/5.png" alt="Messaging View" width="45%">
-</p>
-
-<p align="center">
-  <img src="../docs/images/1.png" alt="Login Page" width="45%">
-  <img src="../docs/images/2.png" alt="Sign Up Page" width="45%">
-</p>
-
-These screenshots demonstrate how the frontend interacts with our backend API to provide real-time messaging capabilities.
