@@ -210,6 +210,7 @@ USER {
         date updatedAt
     }
 ```
+```
 
 ## ⚙️ Middleware
 
