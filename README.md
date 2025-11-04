@@ -380,6 +380,42 @@ npm run build
    - GitHub Pages
    - Sevalla
 
+## 🖼️ Preview Images
+
+Below are screenshots of the Chatify application in action:
+
+### Authentication Screens
+<p align="center">
+  <img src="docs/images/1.png" alt="Login Page" width="45%">
+  <img src="docs/images/2.png" alt="Sign Up Page" width="45%">
+</p>
+
+### Main Chat Interface
+<p align="center">
+  <img src="docs/images/3.png" alt="Chat Interface" width="45%">
+  <img src="docs/images/4.png" alt="Contacts View" width="45%">
+</p>
+
+<p align="center">
+  <img src="docs/images/5.png" alt="Messaging View" width="45%">
+  <img src="docs/images/6.png" alt="Profile View" width="45%">
+</p>
+
+### Additional Features
+<p align="center">
+  <img src="docs/images/7.png" alt="Dark Mode" width="45%">
+  <img src="docs/images/8.png" alt="Media Sharing" width="45%">
+</p>
+
+<p align="center">
+  <img src="docs/images/10.png" alt="Responsive Design" width="45%">
+  <img src="docs/images/11.png" alt="Loading States" width="45%">
+</p>
+
+<p align="center">
+  <img src="docs/images/12.png" alt="Notifications" width="45%">
+</p>
+
 ## 🤝 Contributing
 
 1. Fork the repository

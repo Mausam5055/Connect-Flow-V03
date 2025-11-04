@@ -160,7 +160,7 @@ graph TD
 
 ### User Model
 
-```javascript
+```
 {
   email: String,          // Unique, required
   fullName: String,       // Required
@@ -175,7 +175,7 @@ graph TD
 
 ### Message Model
 
-```javascript
+```
 {
   senderId: ObjectId,     // Reference to User
   receiverId: ObjectId,   // Reference to User
@@ -399,3 +399,21 @@ The server exposes a health check endpoint at the root path `/`.
 <p align="center">
   Hosted on Sevalla | Made with ❤️ by <a href="https://github.com/Mausam5055">Mausam Kar</a>
 </p>
+```
+
+## 🖼️ API in Action
+
+While the backend doesn't have a UI, here are some screenshots showing the application that uses our API:
+
+### Application Screenshots
+<p align="center">
+  <img src="../docs/images/3.png" alt="Chat Interface" width="45%">
+  <img src="../docs/images/5.png" alt="Messaging View" width="45%">
+</p>
+
+<p align="center">
+  <img src="../docs/images/1.png" alt="Login Page" width="45%">
+  <img src="../docs/images/2.png" alt="Sign Up Page" width="45%">
+</p>
+
+These screenshots demonstrate how the frontend interacts with our backend API to provide real-time messaging capabilities.
