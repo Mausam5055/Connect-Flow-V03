@@ -44,7 +44,7 @@ Chatify is a modern real-time chat application built with a React frontend and N
 
 ## 🏗️ Architecture
 
-``mermaid
+```mermaid
 graph TB
     A[Client - React/Vite] --> B[API Gateway]
     B --> C[Auth Service]
