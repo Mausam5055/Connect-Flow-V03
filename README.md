@@ -244,7 +244,7 @@ graph TD
 
 ### Event Flow
 
-``mermaid
+```mermaid
 sequenceDiagram
     participant C1 as Client 1
     participant S as Socket.IO Server

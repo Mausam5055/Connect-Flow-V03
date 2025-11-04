@@ -42,7 +42,7 @@ The backend is a Node.js/Express REST API that handles authentication, messaging
 
 ## 🏗️ Architecture
 
-```
+```mermaid
 graph TD
     A[Client Applications] --> B[Express Router]
     B --> C[Middleware Layer]
@@ -67,7 +67,7 @@ graph TD
 
 ### Flow Diagram
 
-```
+```mermaid
 sequenceDiagram
     participant Client
     participant AuthMiddleware
@@ -89,7 +89,7 @@ sequenceDiagram
 
 ### Authentication Flow
 
-```
+```mermaid
 flowchart TD
     A[User Request] --> B[Auth Middleware]
     B --> C{Valid JWT?}
@@ -117,7 +117,7 @@ flowchart TD
 
 ### Messaging Architecture
 
-```
+```mermaid
 graph TD
     A[Message Controller] --> B[Message Service]
     B --> C[Database Operations]
@@ -190,7 +190,7 @@ graph TD
 
 ### Data Relationship Diagram
 
-```
+```mermaid
 USER ||--o{ MESSAGE : sends
 USER ||--o{ MESSAGE : receives
 USER {
