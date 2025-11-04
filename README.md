@@ -173,7 +173,7 @@ sequenceDiagram
 
 ### Messaging Flow
 
-``mermaid
+```mermaid
 sequenceDiagram
     participant U1 as User 1
     participant U2 as User 2
@@ -199,7 +199,7 @@ Chatify uses Socket.IO for real-time communication between clients and the serve
 
 ### Architecture
 
-``mermaid
+```mermaid
 graph TD
     A[Frontend Client] --> B{Socket.IO Client}
     C[Frontend Client] --> D{Socket.IO Client}
