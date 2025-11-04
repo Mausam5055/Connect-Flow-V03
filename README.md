@@ -79,7 +79,7 @@ graph TB
 
 ### Microservice Architecture
 
-```mermaid
+``mermaid
 graph LR
     A[Frontend] --- B[API Gateway]
     B --- C[Auth Service]
@@ -124,7 +124,7 @@ graph LR
 
 ### Data Flow Diagram
 
-```mermaid
+``mermaid
 flowchart LR
     A[User] --> B[Frontend UI]
     B --> C[API Request]
@@ -154,7 +154,7 @@ flowchart LR
 
 ### Authentication Flow
 
-```mermaid
+``mermaid
 sequenceDiagram
     participant U as User
     participant F as Frontend
@@ -173,7 +173,7 @@ sequenceDiagram
 
 ### Messaging Flow
 
-```mermaid
+``mermaid
 sequenceDiagram
     participant U1 as User 1
     participant U2 as User 2
@@ -199,7 +199,7 @@ Chatify uses Socket.IO for real-time communication between clients and the serve
 
 ### Architecture
 
-```mermaid
+``mermaid
 graph TD
     A[Frontend Client] --> B{Socket.IO Client}
     C[Frontend Client] --> D{Socket.IO Client}
@@ -244,7 +244,7 @@ graph TD
 
 ### Event Flow
 
-```mermaid
+``mermaid
 sequenceDiagram
     participant C1 as Client 1
     participant S as Socket.IO Server
@@ -380,6 +380,18 @@ npm run build
    - GitHub Pages
    - Sevalla
 
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a pull request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
 ## 🖼️ Preview Images
 
 Below are screenshots of the Chatify application in action:
@@ -396,11 +408,6 @@ Below are screenshots of the Chatify application in action:
   <img src="docs/images/4.png" alt="Contacts View" width="45%">
 </p>
 
-<p align="center">
-  <img src="docs/images/5.png" alt="Messaging View" width="45%">
-  <img src="docs/images/6.png" alt="Profile View" width="45%">
-</p>
-
 ### Additional Features
 <p align="center">
   <img src="docs/images/7.png" alt="Dark Mode" width="45%">
@@ -415,18 +422,6 @@ Below are screenshots of the Chatify application in action:
 <p align="center">
   <img src="docs/images/12.png" alt="Notifications" width="45%">
 </p>
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a pull request
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
